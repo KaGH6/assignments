@@ -1,14 +1,16 @@
 <?php
+
+//カード作成
 class Cards
 {
-    public $cards = []; //カードを格納する配列。メンバー変数。array型。
+    public $cards = [];
     public function __construct()
     {
-        $suits = ['ハート', 'ダイヤ', 'クラブ', 'スペード']; //カードのマーク
-        $cardNumbers = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]; //カードの数字と強さを決める
-        foreach ($suits as $suit) { //カードのマークと数字を全て組み合わせて、カード生成
+        $suits = ['ハート', 'ダイヤ', 'クラブ', 'スペード'];
+        $cardNumbers = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
+        foreach ($suits as $suit) {
             foreach ($cardNumbers as $cardNumber) {
-                $this->cards[] = new Rank($suit, $cardNumber); //Rankクラスのインスタンスを作成し、cards配列に追加
+                $this->cards[] = new Rank($suit, $cardNumber);
             }
         }
     }
@@ -16,46 +18,49 @@ class Cards
     //カードのデッキを取得するメソッド
     public function getKards()
     {
-        return $this->cards; //カード５２枚の束。cardsArrayに入れる。作成したカードデッキを返す。
+        return $this->cards;
     }
 }
 
-class Rank //カード情報を管理
+//カードの詳細
+class Rank
 {
-    public $suit; //カードのマークのプロパティ
-    public $cardNumber; //カードの番号のプロパティ
+    public $suit;
+    public $cardNumber;
 
-    public function __construct($suit, $cardNumber) //rankが呼び出されたときにconstructが操作
+    public function __construct($suit, $cardNumber)
     {
         $this->suit = $suit; // マークを設定
         $this->cardNumber = $cardNumber; //番号を設定
     }
 
-    public function getRank() //カードの強さを取得するメソッド
+    //カードの強さを取得
+    public function getRank()
     {
         $rank = ["2" => 2, "3" => 3, "4" => 4, "5" => 5, "6" => 6, "7" => 7, "8" => 8, "9" => 9, "10" => 10, "J" => 11, "Q" => 12, "K" => 13, "A" => 14];
-        return $rank[$this->cardNumber]; //カードの強さを数値で返す
+        return $rank[$this->cardNumber];
     }
 
-    public function __toString() //カード情報を文字列として出力するメソッド。__toString：文字列にするメソッド。
+    //カード情報を文字列として出力するメソッド
+    public function __toString()
     {
         return "{$this->suit}の{$this->cardNumber}";
     }
 }
 
-class Player //プレイヤーを管理するクラス
+//プレイヤーを管理
+class Player
 {
-    public $cards; //メンバー変数
-    public $cardsArray = []; //カード52枚の配列
-    public $playerHands1 = []; //手札、シャッフルしたのをここに入れる
-    public $playerHands2 = []; //手札、シャッフルしたのをここに入れる
+    public $cards;
+    public $cardsArray = [];
+    public $playerHands1 = [];
+    public $playerHands2 = [];
 
-    //Playerクラスのインスタンスが作成されたときに、カードのデッキを用意してシャッフル
     public function __construct()
     {
-        $this->cards = new Cards(); //プレイヤーのカードをセット、インスタンス化
+        $this->cards = new Cards();
         $this->cardsArray = $this->cards->getKards(); //52枚入れる
-        shuffle($this->cardsArray); //シャッフル
+        shuffle($this->cardsArray);
     }
 
     //手札を分配
@@ -78,9 +83,10 @@ class Player //プレイヤーを管理するクラス
     }
 }
 
-class Game //ゲームを管理するクラス
+//ゲームを管理
+class Game
 {
-    public function start() //ゲーム開始メソッド
+    public function start()
     {
         echo "戦争を開始します。\n";
         //Playerクラスをインスタンス化して手札を取得
