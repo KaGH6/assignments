@@ -103,7 +103,7 @@ sampledata.sqlを確認し、各ブロックごとに上から順に挿入して
 SELECT episode_name AS エピソードタイトル, view_number AS 視聴数 FROM episodes ORDER BY view_number DESC LIMIT 3;
 ```
 
-<details open><summary>出力結果</summary>
+<details><summary>出力結果</summary>
 
 ```
 +--------------------------+---------+  
@@ -114,7 +114,7 @@ SELECT episode_name AS エピソードタイトル, view_number AS 視聴数 FRO
 | 第2話 無限列車の戦士たち |  950000 |  
 +--------------------------+---------+  
 ```
-
+</details>
 
 #### 2. よく見られているエピソードの番組情報やシーズン情報
 エピソード視聴数トップ3の番組タイトル、シーズン数、エピソード数、エピソードタイトル、視聴数を取得
@@ -133,7 +133,7 @@ GROUP BY programs.program_name, episodes.episode_name, episodes.view_number
 ORDER BY episodes.view_number DESC LIMIT 3;
 ```
 
-<details open><summary>出力結果</summary>
+<details><summary>出力結果</summary>
 
 ```
 +--------------+------------+--------------+--------------------------+---------+  
@@ -144,7 +144,7 @@ ORDER BY episodes.view_number DESC LIMIT 3;
 | 鬼滅の刃     |          1 |            1 | 第2話 無限列車の戦士たち |  950000 |  
 +--------------+------------+--------------+--------------------------+---------+  
 ```
-
+</details>
 
 #### 3. 本日の番組表
 本日放送される全ての番組の、チャンネル名、放送開始時刻(日付+時間)、放送終了時刻、シーズン数、エピソード数、エピソードタイトル、エピソード詳細を取得
@@ -165,7 +165,7 @@ INNER JOIN seasons ON episodes.season_id = seasons.season_id
 GROUP BY channels.channel_name, program_schedules.release_date, episodes.episode_time, episodes.episode_name, episodes.episode_description;
 ```
 
-<details open><summary>出力結果</summary>
+<details><summary>出力結果</summary>
 
 ```
 +--------------+---------------------+---------------------+------------+--------------+------------------------------+--------------------------------------------------------------------+  
@@ -207,7 +207,7 @@ GROUP BY channels.channel_name, program_schedules.release_date, episodes.episode
 | 日本テレビ   | 2025-02-05 16:30:00 | 2025-02-05 17:00:00 |          1 |            1 | 第2話 魔法帝の挑戦           | アスタは魔法帝の挑戦を受け、魔法の力を磨く。                       |  
 +--------------+---------------------+---------------------+------------+--------------+------------------------------+--------------------------------------------------------------------+  
 ```
-
+</details>
 
 #### 4. 本日から一週間分のドラマのチャンネルの番組表
 ドラマのチャンネルの、放送開始時刻、放送終了時刻、シーズン数、エピソード数、エピソードタイトル、エピソード詳細を本日から一週間分を取得
@@ -232,7 +232,7 @@ AND genres.genre_id = 1
 GROUP BY channels.channel_name, program_schedules.release_date, episodes.episode_time, episodes.episode_name, episodes.episode_description;
 ```
 
-<details open><summary>出力結果</summary>
+<details><summary>出力結果</summary>
 
 ```
 +------------+---------------------+---------------------+------------+--------------+------------------------------+--------------------------------------------------------------------+  
@@ -268,7 +268,7 @@ GROUP BY channels.channel_name, program_schedules.release_date, episodes.episode
 | ドラマ     | 2025-02-05 15:30:00 | 2025-02-05 16:00:00 |          1 |            1 | 第3話 伝説の冒険             | ルフィは伝説的な冒険の始まりを迎える。                             |  
 +------------+---------------------+---------------------+------------+--------------+------------------------------+--------------------------------------------------------------------+   
 ```
-
+</details>
 
 #### 5. 直近一週間で最も見られた番組
 直近一週間に放送された番組の中で、エピソード視聴数合計トップ2の番組に対する、番組タイトル、視聴数を取得
@@ -285,7 +285,7 @@ GROUP BY programs.program_name
 ORDER BY SUM(episodes.view_number) DESC LIMIT 2;
 ```
 
-<details open><summary>出力結果</summary>
+<details><summary>出力結果</summary>
 
 ```
 +-----------------+---------+  
@@ -295,7 +295,7 @@ ORDER BY SUM(episodes.view_number) DESC LIMIT 2;
 | ドラゴンボールZ | 4550000 |  
 +-----------------+---------+  
 ```
-
+</details>
 
 #### 6. ジャンルごとの番組の視聴数ランキング
 ジャンルごとの視聴数トップの番組の、ジャンル名、番組タイトル、エピソード平均視聴数を取得
@@ -315,7 +315,7 @@ GROUP BY genre_name, programs.program_name
 ORDER BY AVG(episodes.view_number) DESC;
 ```
 
-<details open><summary>出力結果</summary>
+<details><summary>出力結果</summary>
 
 ```
 +------------+----------------------+----------------------+  
@@ -333,5 +333,5 @@ ORDER BY AVG(episodes.view_number) DESC;
 | ドラマ     | 相棒                 |          150000.0000 |  
 +------------+----------------------+----------------------+  
 ```
-
+</details>
 
