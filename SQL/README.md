@@ -72,7 +72,7 @@
 
 
 # ステップ2
-1. データベース名：apprentice2
+1. データベース名：apprentice3
 2. 構築したテーブル：TV_database.sql に記載
 3. サンプルデータ：sampledata.sql に記載
 <br>
