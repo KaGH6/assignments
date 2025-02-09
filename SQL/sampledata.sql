@@ -1,3 +1,5 @@
+-- 以下のデータを上から順に挿入してください。
+
 -- サンプルデータ挿入: genres
 INSERT INTO `apprentice3`.`genres` (`genre_id`, `genre_name`) VALUES
 (1, 'ドラマ'),
@@ -114,7 +116,7 @@ INSERT INTO `apprentice3`.`episodes` (`episode_id`, `program_id`, `episode_name`
 (51, 10, '第1話 北海道の大自然', 15, '北海道の大自然です。', 30, 400000);
 
 
-
+-- サンプルデータ挿入: program_schedules
 INSERT INTO `apprentice3`.`program_schedules` (`channel_id`, `episode_id`, `release_date`) 
 VALUES
 (1, 1, '2025-02-05 00:00:00'),

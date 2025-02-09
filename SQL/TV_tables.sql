@@ -1,16 +1,15 @@
--- MySQL Workbench Synchronization
--- Generated: 2025-02-08 22:57
--- Model: New Model
--- Version: 1.0
--- Project: Name of the project
--- Author: PC_User
+-- 以下のデータを番号順で挿入してください。
 
+-- データ挿入1
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+-- データ挿入2
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
+-- データ挿入3
 ALTER SCHEMA `apprentice3`  DEFAULT COLLATE utf8mb4_general_ci ;
 
+-- データ挿入4
 CREATE TABLE IF NOT EXISTS `apprentice3`.`channels` (
   `channel_id` INT(11) NOT NULL AUTO_INCREMENT,
   `channel_name` VARCHAR(45) NOT NULL,
@@ -19,6 +18,7 @@ CREATE TABLE IF NOT EXISTS `apprentice3`.`channels` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
+-- データ挿入5
 CREATE TABLE IF NOT EXISTS `apprentice3`.`programs` (
   `program_id` INT(11) NOT NULL AUTO_INCREMENT,
   `program_name` VARCHAR(20) NOT NULL,
@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS `apprentice3`.`programs` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
+-- データ挿入6
 CREATE TABLE IF NOT EXISTS `apprentice3`.`series` (
   `program_id` INT(11) NOT NULL,
   `series_id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -54,6 +55,7 @@ CREATE TABLE IF NOT EXISTS `apprentice3`.`series` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
+-- データ挿入7
 CREATE TABLE IF NOT EXISTS `apprentice3`.`seasons` (
   `series_id` INT(11) NOT NULL,
   `season_id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -75,6 +77,7 @@ CREATE TABLE IF NOT EXISTS `apprentice3`.`seasons` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
+-- データ挿入8
 CREATE TABLE IF NOT EXISTS `apprentice3`.`episodes` (
   `season_id` INT(11) NOT NULL,
   `episode_id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -99,6 +102,7 @@ CREATE TABLE IF NOT EXISTS `apprentice3`.`episodes` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
+-- データ挿入9
 CREATE TABLE IF NOT EXISTS `apprentice3`.`program_schedules` (
   `schedule_id` INT(11) NOT NULL AUTO_INCREMENT,
   `release_date` DATETIME NOT NULL,
@@ -120,6 +124,7 @@ CREATE TABLE IF NOT EXISTS `apprentice3`.`program_schedules` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
+-- データ挿入10
 CREATE TABLE IF NOT EXISTS `apprentice3`.`genres` (
   `genre_id` INT(11) NOT NULL AUTO_INCREMENT,
   `genre_name` VARCHAR(40) NULL DEFAULT NULL,
@@ -132,18 +137,20 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- -----------------------------------------------------
 -- Placeholder table for view `apprentice3`.`view1`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `apprentice3`.`view1` (`id` INT);
+-- CREATE TABLE IF NOT EXISTS `apprentice3`.`view1` (`id` INT);
 
 
-USE `apprentice3`;
+-- USE `apprentice3`;
 
--- -----------------------------------------------------
--- View `apprentice3`.`view1`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `apprentice3`.`view1`;
-USE `apprentice3`;
+-- -- -----------------------------------------------------
+-- -- View `apprentice3`.`view1`
+-- -- -----------------------------------------------------
+-- DROP TABLE IF EXISTS `apprentice3`.`view1`;
+-- USE `apprentice3`;
 
-
+-- データ挿入11
 SET SQL_MODE=@OLD_SQL_MODE;
+-- データ挿入12
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+-- データ挿入13
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
