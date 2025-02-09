@@ -21,7 +21,6 @@
 | カラム名|データ型 |NULL| キー|初期値 |AUTO INCREMENT|
 |:----------|-----------:|:-----------|:----------|-----------:|:-----------|
 | schedule_id   |  INTEGER |         | PRIMARY  |       |  YES   |
-| schedule  | DATETIME |       |  UNIQUE   |     |       |
 | channel_id  | INTEGER |         |  FOREIGN   |       |  YES   |
 | episode_id  |INTEGER |    |   FOREIGN  |   |    |
 | episode_time  |INTEGER |         |     |       |    |
