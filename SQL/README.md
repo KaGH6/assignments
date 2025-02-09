@@ -236,21 +236,23 @@ GROUP BY channels.channel_name, program_schedules.release_date, episodes.episode
 ### 5. 
 ```
 SELECT
-episodes.episode_name AS '番組タイトル',
-episodes.view_number AS '視聴数'
-FROM program_schedules
-INNER JOIN episodes ON program_schedules.episode_id = episodes.episode_id
-WHERE release_date >= (NOW() - INTERVAL 7 DAY)
-ORDER BY view_number DESC LIMIT 2;
+programs.program_name AS '番組タイトル',
+SUM(episodes.view_number) AS '視聴数'
+FROM episodes
+INNER JOIN programs ON episodes.program_id = programs.program_id
+INNER JOIN program_schedules ON episodes.episode_id = program_schedules.episode_id
+WHERE program_schedules.release_date >= (NOW() - INTERVAL 7 DAY)
+GROUP BY programs.program_name
+ORDER BY SUM(episodes.view_number) DESC LIMIT 2;
 ```
 
 - 出力結果：<br>
-+------------------+---------+  
-| 番組タイトル     | 視聴数  |  
-+------------------+---------+  
-| 第3話 伝説の冒険 | 1000000 |  
-| 第2話 戦況の変化 | 1000000 |  
-+------------------+---------+  
++-----------------+---------+  
+| 番組タイトル    | 視聴数  |  
++-----------------+---------+  
+| 進撃の巨人      | 6650000 |  
+| ドラゴンボールZ | 4550000 |  
++-----------------+---------+  
 
 
 ### 6. 
